@@ -4,6 +4,7 @@ import {configDotenv} from "dotenv";
 import cors from "cors";
 import errorMiddleware from "./middleware/error.middleware.js";
 import authRoutes from "./routes/auth.routes.js";
+import articleRoutes from "./routes/article.routes.js";
 
 configDotenv();
 class Server {
@@ -30,6 +31,7 @@ class Server {
         });
 
         this.app.use("/api/auth", authRoutes);
+        this.app.use("/api/articles", articleRoutes);
     }
 
     initializeErrorHandling() {
